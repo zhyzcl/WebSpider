@@ -1,0 +1,681 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Office</name>
+    </assembly>
+    <members>
+        <member name="F:App.Office.Excel._Workbook">
+            <summary>设置或获取Excel操作对象</summary>
+        </member>
+        <member name="F:App.Office.Excel._Sheet">
+            <summary>设置或获取Excel当前工作表</summary>
+        </member>
+        <member name="F:App.Office.Excel._IsErr">
+            <summary>设置或获取操作是否发生错误</summary>
+        </member>
+        <member name="F:App.Office.Excel._Err">
+            <summary>设置或获取发生错误时的错误信息</summary>
+        </member>
+        <member name="F:App.Office.Excel._ExcelType">
+            <summary>设置或获取Excel文档类型，0:Excel2003;1:Excel2007</summary>
+        </member>
+        <member name="M:App.Office.Excel.#ctor">
+            <summary>构造Excel操作类并创建Excel2003空文挡</summary>
+        </member>
+        <member name="M:App.Office.Excel.#ctor(System.Int32)">
+            <summary>根据Excel文档类型构造Excel操作类并创建Excel空文挡</summary>
+            <param name="excelType">Excel文档类型，0:Excel2003;1:Excel2007</param>
+        </member>
+        <member name="M:App.Office.Excel.#ctor(System.Int32,System.String)">
+            <summary>根据Excel文档类型与工作表名称构造Excel操作类并创建Excel空文挡</summary>
+            <param name="excelType">Excel文档类型，0:Excel2003;1:Excel2007</param>
+            <param name="sheetName">工作表名称</param>
+        </member>
+        <member name="M:App.Office.Excel.#ctor(System.String)">
+            <summary>根据Excel文件路径构造Excel工作表</summary>
+            <param name="filePath">Excel文件路径</param>
+        </member>
+        <member name="M:App.Office.Excel.SetErrInfo">
+            <summary>初始化错误信息</summary>
+        </member>
+        <member name="M:App.Office.Excel.SetErrInfo(System.Boolean,System.String)">
+            <summary>设置操作发生错误是的错误信息</summary>
+            <param name="iserr">是否发生错误</param>
+            <param name="err">错误信息</param>
+        </member>
+        <member name="M:App.Office.Excel.CreateWorkbook(System.String)">
+            <summary>根据Excel文件或Excel模版文件创建Workbook</summary>
+            <param name="filePath">文件路径</param>
+            <returns>根据Excel文件或Excel模版文件创建Workbook</returns>
+        </member>
+        <member name="M:App.Office.Excel.CreateWorkbook">
+            <summary>根据Excel文档类型创建Workbook</summary>
+            <returns>根据Excel文档类型创建Workbook</returns>
+        </member>
+        <member name="M:App.Office.Excel.CreateWorkbook(System.Int32)">
+            <summary>根据Excel文档类型创建Workbook</summary>
+            <param name="excelType">Excel文档类型，0:Excel2003;1:Excel2007</param>
+            <returns>根据Excel文档类型创建Workbook</returns>
+        </member>
+        <member name="M:App.Office.Excel.CreateSheet">
+            <summary>创建一个新的Sheet</summary>
+            <returns>创建一个新的Sheet</returns>
+        </member>
+        <member name="M:App.Office.Excel.CreateSheet(System.String)">
+            <summary>根据工作表名称创建一个新的Sheet</summary>
+            <param name="sheetName">工作表名称</param>
+            <returns>根据工作表名称创建一个新的Sheet</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetHtmlTableNameValue(System.String,System.Int32,System.String)">
+            <summary>返回指定属性名称值</summary>
+            <param name="val">属性值</param>
+            <param name="type">值类型 0 字符串，1 浮点数，2 浮点数，3 Byte，4 Int16，5 Int32，6 Int64</param>
+            <param name="defval">默认返回值</param>
+            <returns>返回指定属性名称值</returns>
+        </member>
+        <member name="M:App.Office.Excel.LoadHtmlTableFactRowColIndex(System.Collections.Generic.List{System.String},System.Int32@,System.Int32@)">
+            <summary>读取HtmlTable实际单元位置</summary>
+            <param name="holdList">已占用单元位置列表</param>
+            <param name="rindex">返回单元行索引</param>
+            <param name="cindex">返回单元列索引</param>
+        </member>
+        <member name="M:App.Office.Excel.SaveHtmlTableFactRowColIndex(System.Collections.Generic.List{System.String}@,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>保存单元占用位置</summary>
+            <param name="holdList">已占用单元位置列表引用</param>
+            <param name="rowspan">单元占用行数</param>
+            <param name="colspan">单元占用列数</param>
+            <param name="rindex">单元行开始索引</param>
+            <param name="cindex">单元列开始索引</param>
+        </member>
+        <member name="M:App.Office.Excel.SaveHtmlTableFactRowColIndex(System.Collections.Generic.List{System.String}@,System.Int32,System.Int32)">
+            <summary>保存单元占用位置</summary>
+            <param name="holdList">已占用单元位置列表引用</param>
+            <param name="rindex">单元行开始索引</param>
+            <param name="cindex">单元列开始索引</param>
+        </member>
+        <member name="M:App.Office.Excel.HtmlTableToExcel(System.String)">
+            <summary>将指定的HtmlTable转换为Excel工作表并导入到默认的Excel工作表中</summary>
+            <param name="htmTable">HtmlTable字符串</param>
+        </member>
+        <member name="M:App.Office.Excel.HtmlTableToExcel(System.Int32,System.String)">
+            <summary>将指定的HtmlTable转换为Excel工作表并导入到指定的Excel工作表中</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="htmTable">HtmlTable字符串</param>
+        </member>
+        <member name="M:App.Office.Excel.HtmlTableToExcel(System.String,System.String)">
+            <summary>将指定的HtmlTable转换为Excel工作表并导入到指定的Excel工作表中</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="htmTable">HtmlTable字符串</param>
+        </member>
+        <member name="M:App.Office.Excel.HtmlTableToExcel(NPOI.SS.UserModel.ISheet,System.String)">
+            <summary>将指定的HtmlTable转换为Excel工作表并导入到指定的Excel工作表中</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="htmTable">HtmlTable字符串</param>
+        </member>
+        <member name="M:App.Office.Excel.GetMemoryStream">
+            <summary>返回Excel内存流对象</summary>
+            <returns>返回Excel内存流对象</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetStream">
+            <summary>返回Excel流对象</summary>
+            <returns>返回Excel流对象</returns>
+        </member>
+        <member name="M:App.Office.Excel.WriteFile(System.String)">
+            <summary>将Excel写入到文件</summary>
+            <param name="filePath">文件路径及文件名</param>
+        </member>
+        <member name="M:App.Office.Excel.WriteSteamToFile(System.IO.MemoryStream,System.String)">
+            <summary>将内存流写入到文件</summary>
+            <param name="ms">内存流</param>
+            <param name="filePath">文件路径及文件名</param>
+        </member>
+        <member name="M:App.Office.Excel.WriteSteamToFile(System.Byte[],System.String)">
+            <summary>将字节流写入到文件</summary>
+            <param name="data">字节流</param>
+            <param name="filePath">文件路径及文件名</param>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableToExcel(System.Data.DataTable)">
+            <summary>将DataTable转换成Excel流对象</summary>
+            <param name="SourceTable">DataTable</param>
+            <returns>将DataTable转换成Excel流对象</returns>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableToWorkBook(System.Data.DataTable)">
+            <summary>将DataTable转换成Workbook.</summary>
+            <param name="SourceTable">数据内存表</param>
+            <returns>将DataTable转换成Workbook.</returns>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableToExcel(System.Data.DataTable,System.String)">
+            <summary>将DataTable数据导出为Excel文件.</summary>
+            <param name="SourceTable">数据内存表</param>
+            <param name="FileName">需要写入的文件路径及文件名</param>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableFromExcel(System.String,System.Int32,System.Boolean)">
+            <summary>将指定的工作表转换为DataTable</summary>
+            <param name="sheetName">Excel工作表名称(sheet)</param>
+            <param name="headerRowIndex">标题行索引</param>
+            <param name="haveHeader">是否存在标题列</param>
+            <returns>将指定的工作表转换为DataTable</returns>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableFromExcel(System.Int32,System.Int32,System.Boolean)">
+            <summary>将指定的工作表转换为DataTable</summary>
+            <param name="SheetIndex">Excel工作表索引(sheet index)</param>
+            <param name="headerRowIndex">列标题行索引</param>
+            <param name="haveHeader">是否存在标题列</param>
+            <returns>将指定的工作表转换为DataTable</returns>
+        </member>
+        <member name="M:App.Office.Excel.RenderDataTableFromExcel(NPOI.SS.UserModel.ISheet,System.Int32,System.Boolean)">
+            <summary>将指定的工作表转换为DataTable</summary>
+            <param name="sheet">Excel工作表</param>
+            <param name="headerRowIndex">列标题行索引</param>
+            <param name="haveHeader">是否存在标题列</param>
+            <returns>将指定的工作表转换为DataTable</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetPictureType(System.Int32)">
+            <summary>根据数字返回图片类型，0：JPEG，1：PNG，2：EMF，3：WMF，4：PICT，5：DIB，6：None</summary>
+            <param name="type">0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>根据数字返回图片类型，0：JPEG，1：PNG，2：EMF，3：WMF，4：PICT，5：DIB，6：None</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellType(System.Int32)">
+            <summary>根据数字返回单元值类型，0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</summary>
+            <param name="type">0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>根据数字返回单元值类型，0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellType(System.String)">
+            <summary>根据字符串返回单元值类型，默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</summary>
+            <param name="type">默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</param>
+            <returns>根据字符串返回单元值类型，默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellTypeNum(System.String)">
+            <summary>根据字符串返回单元值类型数字标识，默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</summary>
+            <param name="type">默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</param>
+            <returns>根据字符串返回单元值类型数字标识，默认：字符串，numeric：数字，boolean：布尔，formula：公式，blank：空，unknown：未知，error：错误</returns>
+        </member>
+        <member name="M:App.Office.Excel.ExtractString">
+            <summary>返回Excel文档文本</summary>
+            <returns>返回Excel文档文本</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetSheet(System.Int32)">
+            <summary>根据工作表索引值返回工作表操作对象</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <returns>根据工作表索引值返回工作表操作对象</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetSheet(System.String)">
+            <summary>根据工作表名称返回工作表操作对象</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <returns>根据工作表名称返回工作表操作对象</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellValue(System.Int32,System.Int32)">
+            <summary>返回默认的工作表中指定的行索引与列索引内的单元值</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <returns>返回默认的工作表中指定的行索引与列索引内的单元值</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellValue(System.Int32,System.Int32,System.Int32)">
+            <summary>返回指定的工作表中指定的行索引与列索引内的单元值</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <returns>返回指定的工作表中指定的行索引与列索引内的单元值</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellValue(System.String,System.Int32,System.Int32)">
+            <summary>返回指定的工作表中指定的行索引与列索引内的单元值</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <returns>返回指定的工作表中指定的行索引与列索引内的单元值</returns>
+        </member>
+        <member name="M:App.Office.Excel.GetCellValue(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32)">
+            <summary>返回指定的工作表中指定的行索引与列索引内的单元值</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <returns>返回指定的工作表中指定的行索引与列索引内的单元值</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.Int32,System.Int32,System.String)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.String,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(System.String,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellValue(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="value">单元值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellType(System.Int32,System.Int32,System.Int32)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellType(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellType(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellType(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.Int32)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="cellType">单元值类型：0：字符串，1：数字，2：布尔，3：公式，4：空，5：未知，6：错误</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元值类型,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetColumnFormula(System.Int32,System.String)">
+            <summary>设置默认的工作表中指定列索引单元公式,设置成功返回true,否则返回false</summary>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置默认的工作表中指定列索引单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetColumnFormula(System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetColumnFormula(System.String,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetColumnFormula(NPOI.SS.UserModel.ISheet,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定列索引单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCelFormula(System.Int32,System.Int32,System.String)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCelFormula(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCelFormula(System.String,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCelFormula(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引</param>
+            <param name="cellIndex">列索引</param>
+            <param name="formula">公式表达式</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元公式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellLink(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="linktype">链接类型(0:网址、1:档案、2:邮件、3:內文)</param>
+            <param name="linkValue">链接地址</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellLink(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="linktype">链接类型(0:网址、1:档案、2:邮件、3:內文)</param>
+            <param name="linkValue">链接地址</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellLink(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="linktype">链接类型(0:网址、1:档案、2:邮件、3:內文)</param>
+            <param name="linkValue">链接地址</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellLink(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="linktype">链接类型(0:网址、1:档案、2:邮件、3:內文)</param>
+            <param name="linkValue">链接地址</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元超链接,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellFont(System.Int32,System.Int32,System.String,System.Int16)">
+            <summary>设置默认的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置默认的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellFont(System.Int32,System.Int32,System.Int32,System.String,System.Int16)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellFont(System.String,System.Int32,System.Int32,System.String,System.Int16)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetCellFont(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.String,System.Int16)">
+            <summary>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="rowIndex">行索引值</param>
+            <param name="cellIndex">列索引值</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表中指定的行索引与列索引内的单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetFont(System.String,System.Int16)">
+            <summary>设置默认的工作表内所有单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置默认的工作表内所有单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetFont(System.Int32,System.String,System.Int16)">
+            <summary>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetFont(System.String,System.String,System.Int16)">
+            <summary>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetFont(NPOI.SS.UserModel.ISheet,System.String,System.Int16)">
+            <summary>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置指定的工作表内所有单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetAllSheetFont(System.String,System.Int16)">
+            <summary>设置所有的工作表内所有单元字体样式,设置成功返回true,否则返回false</summary>
+            <param name="fontName">字体名称</param>
+            <param name="fontSize">字体大小</param>
+            <returns>设置所有的工作表内所有单元字体样式,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetGridLine(System.Boolean)">
+            <summary>设置默认的工作表网格线,设置成功返回true,否则返回false</summary>
+            <param name="haveGridLine">是否显示网格线</param>
+            <returns>设置默认的工作表网格线,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetGridLine(System.Int32,System.Boolean)">
+            <summary>设置指定的工作表网格线,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="haveGridLine">是否显示网格线</param>
+            <returns>设置指定的工作表网格线,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetGridLine(System.String,System.Boolean)">
+            <summary>设置指定的工作表网格线,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="haveGridLine">是否显示网格线</param>
+            <returns>设置指定的工作表网格线,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetSheetGridLine(NPOI.SS.UserModel.ISheet,System.Boolean)">
+            <summary>设置指定的工作表网格线,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="haveGridLine">是否显示网格线</param>
+            <returns>设置指定的工作表网格线,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetAllSheetGridLine(System.Boolean)">
+            <summary>设置所有工作表网格线,设置成功返回true,否则返回false</summary>
+            <param name="haveGridLine">是否显示网格线</param>
+            <returns>设置所有工作表网格线,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupRow(System.Int32,System.Int32)">
+            <summary>设置默认工作表行群组,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="startIndex">行群组开始索引</param>
+            <param name="endIndex">行群组结束索引</param>
+            <returns>设置默认工作表行群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupRow(System.Int32,System.Int32,System.Int32)">
+            <summary>设置指定工作表行群组,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="startIndex">行群组开始索引</param>
+            <param name="endIndex">行群组结束索引</param>
+            <returns>设置指定工作表行群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupRow(System.String,System.Int32,System.Int32)">
+            <summary>设置指定工作表行群组,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="startIndex">行群组开始索引</param>
+            <param name="endIndex">行群组结束索引</param>
+            <returns>设置指定工作表行群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupRow(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32)">
+            <summary>设置指定工作表行群组,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="startIndex">行群组开始索引</param>
+            <param name="endIndex">行群组结束索引</param>
+            <returns>设置指定工作表行群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupColumn(System.Int32,System.Int32)">
+            <summary>设置默认工作表列群组,设置成功返回true,否则返回false</summary>
+            <param name="startIndex">列群组开始索引</param>
+            <param name="endIndex">列群组结束索引</param>
+            <returns>设置默认工作表列群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupColumn(System.Int32,System.Int32,System.Int32)">
+            <summary>设置指定工作表列群组,设置成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="startIndex">列群组开始索引</param>
+            <param name="endIndex">列群组结束索引</param>
+            <returns>设置指定工作表列群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupColumn(System.String,System.Int32,System.Int32)">
+            <summary>设置指定工作表列群组,设置成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="startIndex">列群组开始索引</param>
+            <param name="endIndex">列群组结束索引</param>
+            <returns>设置指定工作表列群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.SetGroupColumn(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32)">
+            <summary>设置指定工作表列群组,设置成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="startIndex">列群组开始索引</param>
+            <param name="endIndex">列群组结束索引</param>
+            <returns>设置指定工作表列群组,设置成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.EmbedImage(System.String,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>将指定的图片嵌入到Excel内默认的工作表中,嵌入成功返回true,否则返回false</summary>
+            <param name="imgPath">图片路径</param>
+            <param name="type">图片类型，0：JPEG，1：PNG，2：EMF，3：WMF，4：PICT，5：DIB，6：None</param>
+            <param name="IsResize">是否根据窗口大小自动调整图片大小</param>
+            <param name="dx1"></param>
+            <param name="dy1"></param>
+            <param name="dx2"></param>
+            <param name="dy2"></param>
+            <param name="col1"></param>
+            <param name="row1"></param>
+            <param name="col2"></param>
+            <param name="row2"></param>
+            <returns>将指定的图片嵌入到Excel内默认的工作表中,嵌入成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.EmbedImage(System.Int32,System.String,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="imgPath">图片路径</param>
+            <param name="type">图片类型，0：JPEG，1：PNG，2：EMF，3：WMF，4：PICT，5：DIB，6：None</param>
+            <param name="IsResize">是否根据窗口大小自动调整图片大小</param>
+            <param name="dx1"></param>
+            <param name="dy1"></param>
+            <param name="dx2"></param>
+            <param name="dy2"></param>
+            <param name="col1"></param>
+            <param name="row1"></param>
+            <param name="col2"></param>
+            <param name="row2"></param>
+            <returns>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.EmbedImage(System.String,System.String,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="imgPath">图片路径</param>
+            <param name="type">图片类型，0：JPEG，1：PNG，2：EMF，3：WMF，4：PICT，5：DIB，6：None</param>
+            <param name="IsResize">是否根据窗口大小自动调整图片大小</param>
+            <param name="dx1"></param>
+            <param name="dy1"></param>
+            <param name="dx2"></param>
+            <param name="dy2"></param>
+            <param name="col1"></param>
+            <param name="row1"></param>
+            <param name="col2"></param>
+            <param name="row2"></param>
+            <returns>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.EmbedImage(NPOI.SS.UserModel.ISheet,System.String,NPOI.SS.UserModel.PictureType,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="imgPath">图片路径</param>
+            <param name="ptype">图片类型</param>
+            <param name="IsResize">是否根据窗口大小自动调整图片大小</param>
+            <param name="dx1"></param>
+            <param name="dy1"></param>
+            <param name="dx2"></param>
+            <param name="dy2"></param>
+            <param name="col1"></param>
+            <param name="row1"></param>
+            <param name="col2"></param>
+            <param name="row2"></param>
+            <returns>将指定的图片嵌入到Excel内指定的工作表中,嵌入成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.MergeCell(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>根据指定的始终单元在默认的工作表中合并单元格,合并成功返回true,否则返回false</summary>
+            <param name="firstRow">起始行索引</param>
+            <param name="lastRow">终止行索引</param>
+            <param name="firstCol">起始列索引</param>
+            <param name="lastCol">终止列索引</param>
+            <returns>根据指定的始终单元在默认的工作表中合并单元格,合并成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.MergeCell(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</summary>
+            <param name="sheetIndex">工作表索引值</param>
+            <param name="firstRow">起始行索引</param>
+            <param name="lastRow">终止行索引</param>
+            <param name="firstCol">起始列索引</param>
+            <param name="lastCol">终止列索引</param>
+            <returns>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.MergeCell(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</summary>
+            <param name="sheetName">工作表名称</param>
+            <param name="firstRow">起始行索引</param>
+            <param name="lastRow">终止行索引</param>
+            <param name="firstCol">起始列索引</param>
+            <param name="lastCol">终止列索引</param>
+            <returns>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:App.Office.Excel.MergeCell(NPOI.SS.UserModel.ISheet,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</summary>
+            <param name="sheet">工作表对象</param>
+            <param name="firstRow">起始行索引</param>
+            <param name="lastRow">终止行索引</param>
+            <param name="firstCol">起始列索引</param>
+            <param name="lastCol">终止列索引</param>
+            <returns>根据指定的始终单元在指定的工作表中合并单元格,合并成功返回true,否则返回false</returns>
+        </member>
+        <member name="P:App.Office.Excel.Workbook">
+            <summary>设置或获取Excel操作对象</summary>
+        </member>
+        <member name="P:App.Office.Excel.Sheet">
+            <summary>设置或获取Excel当前工作表</summary>
+        </member>
+        <member name="P:App.Office.Excel.IsErr">
+            <summary>设置或获取操作是否发生错误</summary>
+        </member>
+        <member name="P:App.Office.Excel.Err">
+            <summary>设置或获取发生错误时的错误信息</summary>
+        </member>
+        <member name="P:App.Office.Excel.ExcelType">
+            <summary>设置或获取Excel文档类型，0:Excel2003;1:Excel2007</summary>
+        </member>
+    </members>
+</doc>

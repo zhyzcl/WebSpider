@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Win</name>
+    </assembly>
+    <members>
+        <member name="T:App.Win.ClsIme">
+            <summary>将输入法全角输入状态更改成半角输入状态类
+            <para>用法说明：</para>
+            <para>1、使当前窗体所有控件: form窗体的load事件中加上ClsIme.SetIme(this);</para>
+            <para>2、使当前窗体指定控件: form窗体的load事件中加上ClsIme.SetIme(指定控件);</para>
+            <para>3、使当前窗体指定句柄: form窗体的load事件中加上ClsIme.SetIme(句柄);</para>
+            </summary>
+        </member>
+        <member name="F:App.Win.ClsIme.IME_CMODE_FULLSHAPE">
+            <summary></summary>
+        </member>
+        <member name="F:App.Win.ClsIme.IME_CHOTKEY_SHAPE_TOGGLE">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ImmGetContext(System.IntPtr)">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ImmGetOpenStatus(System.IntPtr)">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ImmSetOpenStatus(System.IntPtr,System.Boolean)">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ImmGetConversionStatus(System.IntPtr,System.Int32@,System.Int32@)">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ImmSimulateHotKey(System.IntPtr,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:App.Win.ClsIme.SetIme(System.Windows.Forms.Form)">
+            <summary>使当前窗体所有控件的输入法全角输入状态更改成半角输入状态</summary>
+            <param name="frm">当前窗体</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Win.ClsIme.SetIme(System.Windows.Forms.Control)">
+            <summary>使当前窗体指定控件的输入法全角输入状态更改成半角输入状态</summary>
+            <param name="ctl">指定控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Win.ClsIme.SetIme(System.IntPtr)">
+            <summary>使当前窗体指定句柄的输入法全角输入状态更改成半角输入状态</summary>
+            <param name="Handel">指定句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Win.ClsIme.ChangeAllControl(System.Windows.Forms.Control)">
+            <summary>添加事件</summary>
+        </member>
+        <member name="M:App.Win.ClsIme.frm_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>窗体事件</summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ctl_Enter(System.Object,System.EventArgs)">
+            <summary>控件的Enter处理程序</summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ChangeControlIme(System.Object)">
+            <summary>句柄处理</summary>
+        </member>
+        <member name="M:App.Win.ClsIme.ChangeControlIme(System.IntPtr)">
+            <summary>检查输入法的全角半角状态</summary>
+        </member>
+        <member name="T:App.Win.FormCentShow">
+            <summary>WindowsForm分页显示控件</summary>
+        </member>
+        <member name="M:App.Win.FormCentShow.#ctor">
+            <summary>实例化控件</summary>
+        </member>
+        <member name="M:App.Win.FormCentShow.SetEnabled(System.Int32,System.Int32,System.Int32)">
+            <summary>设置当前页码和页面总数、数据总数，并根据当前页码和页面总数判断首页、上一页、下一页、尾页是否可用</summary>
+            <param name="PageNum">当前页码</param>
+            <param name="CentCount">页面总数</param>
+            <param name="DataCount">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Win.FormCentShow._txtPage_TextChanged(System.Object,System.EventArgs)">
+            <summary>在跳转页码输入显示控件上更改Text属性的值时引发事件</summary>
+        </member>
+        <member name="M:App.Win.FormCentShow._txtPage_PreviewKeyDown(System.Object,System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>在跳转页码输入显示控件具有焦点并且用户按下并释放某个键之前引发事件</summary>
+        </member>
+        <member name="M:App.Win.FormCentShow.StrIsReg(System.String,System.String)">
+            <summary>正则表达式验证输入字符串，匹配返回 true 不匹配 返回 false</summary>
+            <param name="strIn">要验证的字符串</param>
+            <param name="regStr">正则表达式</param>
+            <returns>返回true | false</returns>
+        </member>
+        <member name="F:App.Win.FormCentShow.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:App.Win.FormCentShow.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:App.Win.FormCentShow.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.LinkTop">
+            <summary>设置或获取首页文字按钮显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.LinkPro">
+            <summary>设置或获取上一页文字按钮显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.LinkNext">
+            <summary>设置或获取下一页文字按钮显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.LinkLast">
+            <summary>设置或获取尾页文字按钮显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lblRec">
+            <summary>设置或获取当前页码显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lblSumPage">
+            <summary>设置或获取总页数显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lblPage">
+            <summary>设置或获取数据总数显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.txtPage">
+            <summary>设置或获取跳转页码输入显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.btnJump">
+            <summary>设置或获取跳转页按钮显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.la">
+            <summary>设置或获取当前页码头部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lb">
+            <summary>设置或获取当前页码尾部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lc">
+            <summary>设置或获取总页数头部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.ld">
+            <summary>设置或获取总页数尾部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.le">
+            <summary>设置或获取数据总数头部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lf">
+            <summary>设置或获取数据总数尾部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lg">
+            <summary>设置或获取跳转页码输入头部描述显示控件</summary>
+        </member>
+        <member name="P:App.Win.FormCentShow.lh">
+            <summary>设置或获取跳转页码输入尾部描述显示控件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.LinkTop_LinkClicked">
+            <summary>单击首页文字按钮链接引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.LinkPro_LinkClicked">
+            <summary>单击上一页文字按钮链接引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.LinkNext_LinkClicked">
+            <summary>单击下一页文字按钮链接引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.LinkLast_LinkClicked">
+            <summary>单击尾页文字按钮链接发生事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.btnJump_Click">
+            <summary>单击跳转页按钮组件引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.txtPage_Enter">
+            <summary>在跳转页码输入显示控件成为该窗体的活动控件时引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.txtPage_Leave">
+            <summary>在跳转页码输入显示控件不再是该窗体的活动控件时引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.txtPage_TextChanged">
+            <summary>在跳转页码输入显示控件上更改Text属性的值时引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.txtPage_PreviewKeyDown">
+            <summary>在跳转页码输入显示控件具有焦点并且用户按下并释放某个键之前引发事件</summary>
+        </member>
+        <member name="E:App.Win.FormCentShow.txtPage_KeyPress">
+            <summary>在跳转页码输入显示控件具有焦点并且用户按下并释放某个键后引发事件</summary>
+        </member>
+        <member name="T:App.Win.WinOften">
+            <summary>Win32常用操作类</summary>
+        </member>
+        <member name="F:App.Win.WinOften.FormAction">
+            <summary>设置或获取程序是否正在执行操作集合，如果正在执行操作为true否则为false(默认值：new Dictionary&lt;string, bool&gt;())</summary>
+        </member>
+        <member name="F:App.Win.WinOften.TypeList">
+            <summary>设置或获取程序类标签名及类全名集合(默认值：new Dictionary&lt;string, string&gt;())</summary>
+        </member>
+        <member name="M:App.Win.WinOften.AddTypeList(System.Type)">
+            <summary>
+            将指定类型的名称及类型全名添加到程序类标签名及类全名集合
+            </summary>
+            <param name="st">类型</param>
+        </member>
+        <member name="M:App.Win.WinOften.AddTypeList(System.String,System.Type)">
+            <summary>
+            将指定类标签名及类型全名添加到程序类标签名及类全名集合
+            </summary>
+            <param name="name">类标签名</param>
+            <param name="st">类型</param>
+        </member>
+        <member name="M:App.Win.WinOften.AddTypeList(System.String,System.String)">
+            <summary>
+            将指定类标签名及类型全名添加到程序类标签名及类全名集合
+            </summary>
+            <param name="name">类标签名</param>
+            <param name="className">类型全名</param>
+        </member>
+        <member name="M:App.Win.WinOften.MessShow(System.String)">
+            <summary>WinForm弹出信息提示框</summary>
+            <param name="MesStr">提示语句</param>
+        </member>
+        <member name="M:App.Win.WinOften.MessShow(System.String,System.Int32)">
+            <summary>WinForm弹出提示框</summary>
+            <param name="MesStr">提示语句</param>
+            <param name="infoicon">左侧图标，成功为0 失败为1 提示输入格式不符之类 用2，0为信息、1为错误、2为警告</param>
+        </member>
+        <member name="M:App.Win.WinOften.ActivateForm(System.Collections.Generic.Dictionary{System.String,System.Windows.Forms.Form},System.String,System.Windows.Forms.Form,System.Windows.Forms.Form)">
+            <summary>根据窗体名称及窗体对象弹出窗体</summary>
+            <param name="Frm">弹出窗体数组</param>
+            <param name="FormName">窗体名称</param>
+            <param name="FormObject">窗体对象</param>
+            <param name="PFormObject">父窗体对象</param>
+        </member>
+        <member name="M:App.Win.WinOften.AnimateWindow(System.IntPtr,System.Int32,System.Int32)">
+            <summary>动画显示窗体,操作成功返回true，否则返回false</summary>
+            <param name="hwnd">Windows窗体句柄</param>
+            <param name="dwTime">动画的时间(毫秒)</param>
+            <param name="dwFlags">动画的类型，说明：
+            <para>1：由左至右渐出 </para>
+            <para>2：由右至左渐出</para>
+            <para>4：由上到下渐出</para>
+            <para>8：由下到上渐出</para>
+            <para>16：由中心逐渐出现</para>
+            <para>65536：在窗体卸载时若想使用本函数就得加上此常量</para>
+            <para>131072：平常窗体出的方式,即突发式</para>
+            <para>262144：在窗体通过本函数打开后，默认情况下会失去焦点，除非加上本常量  </para>
+            <para>524288：渐入式，由透明逐渐出现</para>
+            </param>
+            <returns>操作成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:App.Win.WinOften.Beep(System.Int32,System.Int32)">
+            <summary>PC的喇叭响一下,操作成功返回true，否则返回false</summary>
+            <param name="frequency">发声的频率</param>
+            <param name="duration">持续的时间</param>
+            <returns>操作成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:App.Win.WinOften.GetDiskFreeSpace(System.String,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>获取磁盘空间,操作成功返回true，否则返回false</summary>
+            <param name="rootPathName">不包括卷名的一个磁盘根路径</param>
+            <param name="sectorsPerCluster">用于装载一个簇内扇区数的变量</param>
+            <param name="bytesPerSector">用于装载一个扇区内字节数的变量</param>
+            <param name="numberOfFreeClusters">用于装载磁盘上剩余簇数的变量</param>
+            <param name="totalNumberOfClusters">用于装载磁盘上总簇数的变量</param>
+            <returns>操作成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:App.Win.WinOften.SetCursorPos(System.Int32,System.Int32)">
+            <summary>设置鼠标的位置</summary>
+            <param name="X">相对于屏幕左上角的X轴坐标</param>
+            <param name="Y">相对于屏幕左上角的Y轴坐标</param>
+        </member>
+        <member name="M:App.Win.WinOften.mouse_event(System.Int32,System.Int32,System.Int32,System.UInt32,System.UIntPtr)">
+            <summary>设置鼠标动作或行为</summary>
+            <param name="flags">设置鼠标动作，说明：
+            <para>1：移动鼠标 </para>
+            <para>2：模拟鼠标左键按下</para>
+            <para>4：模拟鼠标左键抬起</para>
+            <para>8：模拟鼠标右键按下</para>
+            <para>16：模拟鼠标右键抬起</para>
+            <para>32：模拟鼠标中键按下</para>
+            <para>64：模拟鼠标中键抬起</para>
+            <para>128：模拟鼠标滚轮向下滚动</para>
+            <para>256：模拟鼠标滚轮向上滚动</para>
+            <para>2048：未知</para>
+            <para>16384：未知</para>
+            <para>32768：标示是否采用绝对坐标</para>
+            </param>
+            <param name="dx">鼠标指针X轴坐标</param>
+            <param name="dy">鼠标指针X轴坐标</param>
+            <param name="data"></param>
+            <param name="extraInfo">用于表示指针或句柄的平台特定类型</param>
+        </member>
+        <member name="M:App.Win.WinOften.GetSystemMenu(System.Int32,System.Int32)">
+            <summary>返回窗体标题栏句柄</summary>
+            <param name="hwnd">窗体句柄</param>
+            <param name="bRevert"></param>
+        </member>
+        <member name="M:App.Win.WinOften.RemoveMenu(System.Int32,System.Int32,System.Int32)">
+            <summary>移除窗体标题栏按钮</summary>
+            <param name="hMenu">窗体标题栏句柄</param>
+            <param name="nPosition"></param>
+            <param name="wFlags"></param>
+        </member>
+        <member name="M:App.Win.WinOften.DeleteMenu(System.Int32,System.Int32,System.Int32)">
+            <summary>删除窗体标题栏按钮</summary>
+            <param name="hMenu">窗体标题栏句柄</param>
+            <param name="nPosition"></param>
+            <param name="wFlags"></param>
+        </member>
+        <member name="M:App.Win.WinOften.IsFormAction">
+            <summary>获取程序是否正在执行操作，如果正在执行操作返回true否则返回false</summary>
+        </member>
+        <member name="M:App.Win.WinOften.IsFormAction(System.String)">
+            <summary>获取指定名称的窗体是否正在执行操作，如果正在执行操作返回true否则返回false</summary>
+        </member>
+        <member name="M:App.Win.WinOften.SetFormAction(System.String,System.Boolean)">
+            <summary>设置窗体程序执行状态</summary>
+            <param name="FName">窗体名称</param>
+            <param name="set">执行状态：正在执行 true 否则 false</param>
+            <returns></returns> 
+        </member>
+    </members>
+</doc>
